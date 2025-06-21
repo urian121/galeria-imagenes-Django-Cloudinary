@@ -3,16 +3,11 @@
 {% block title %}Galería de Imágenes{% endblock %}
 
 {% block content %}
-
-<div class="text-center mb-4">
-    <h3 class="display-6 fw-bold text-primary">Galería de Imágenes</h3>
-    <hr />
-</div>
     
 <div class="row">
     <div class="col-md-5">
         <div class="upload-form bg-white">
-            <h2 class="text-primary mb-4 text-center">Subir nueva imagen</h2>
+            <h2 class="text-primary mb-4 text-center text-black opacity-75">Subir nueva imagen</h2>
             <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                 {% csrf_token %}
                 <div class="mb-3">
@@ -33,14 +28,16 @@
     </div>
 
     <div class="col-md-7">
-        <h2 class="text-primary mb-4">Imágenes Recientes</h2>
+        <h2 class="text-primary mb-4 text-center text-black opacity-75">Imágenes Recientes</h2>
         <div class="gallery-container">
             <div class="row g-4">
             {% for img in imagenes %}
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-sm">
                     <div class="image-container">
-                        <img src="{{ img.imagen.url }}" class="card-img-top" alt="{{ img.titulo }}">
+                        <a href="{{ img.imagen.url }}" target="_blank">
+                            <img src="{{ img.imagen.url }}" class="card-img-top" alt="{{ img.titulo }}">
+                        </a>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ img.titulo }}</h5>
