@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+    <title>Galería</title>
+</head>
+<body>
+    <h1>Subir imagen</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Subir</button>
+    </form>
+
+    <h2>Imágenes:</h2>
+    {% for img in imagenes %}
+        <div>
+            <h3>{{ img.titulo }}</h3>
+            <img src="{{ img.imagen.url }}" width="200" />
+        </div>
+    {% endfor %}
+</body>
+</html>
