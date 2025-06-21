@@ -2,6 +2,7 @@
 
 Aplicación web que permite subir y gestionar imágenes usando Django y Cloudinary para el almacenamiento.
 
+![Galería de Imágenes](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/galeria-Django-Cloudinary.png)
 
 ## Configuración
 
@@ -33,3 +34,13 @@ python manage.py runserver
 2. Subir imágenes usando el formulario en el lado izquierdo
 3. Ver las imágenes en el grid del lado derecho
 4. Eliminar imágenes usando el botón de eliminar
+
+
+### Expresiones de Gratitud 🎁
+
+    Comenta a otros sobre este proyecto 📢
+    Invita una cerveza 🍺 o un café ☕
+    Paypal iamdeveloper86@gmail.com
+    Da las gracias públicamente 🤓.
+
+## No olvides SUSCRIBIRTE 👍
