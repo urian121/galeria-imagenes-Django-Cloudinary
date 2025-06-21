@@ -1,22 +1,66 @@
-{% load static %}
-<html>
-<head>
-    <title>Galería</title>
-</head>
-<body>
-    <h1>Subir imagen</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Subir</button>
-    </form>
+{% extends 'base.html' %}
 
-    <h2>Imágenes:</h2>
-    {% for img in imagenes %}
-        <div>
-            <h3>{{ img.titulo }}</h3>
-            <img src="{{ img.imagen.url }}" width="200" />
+{% block title %}Galería de Imágenes{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-4">
+    <h3 class="display-6 fw-bold text-primary">Galería de Imágenes</h3>
+    <hr />
+</div>
+    
+<div class="row">
+    <div class="col-md-5">
+        <div class="upload-form bg-white">
+            <h2 class="text-primary mb-4 text-center">Subir nueva imagen</h2>
+            <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_titulo" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="id_titulo" name="titulo" required>
+                </div>
+                <div class="mb-4">
+                    <label for="id_imagen" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" id="id_imagen" name="imagen" required>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="fas fa-upload me-2"></i>Subir Imagen
+                    </button>
+                </div>
+            </form>
         </div>
-    {% endfor %}
-</body>
-</html>
+    </div>
+
+    <div class="col-md-7">
+        <h2 class="text-primary mb-4">Imágenes Recientes</h2>
+        <div class="gallery-container">
+            <div class="row g-4">
+            {% for img in imagenes %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="image-container">
+                        <img src="{{ img.imagen.url }}" class="card-img-top" alt="{{ img.titulo }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ img.titulo }}</h5>
+                        <div class="mt-3">
+                            <button type="button" onclick="eliminarImagen({{ img.id }})" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash me-2"></i>Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-images me-2"></i>
+                    No hay imágenes en la galería. ¡Sube la primera!
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

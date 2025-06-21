@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-import cloudinary
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -134,10 +133,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Cloudinary para archivos
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+'''
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dlclpcbki',
+    'API_KEY': '893577597641449',
+    'API_SECRET': 'xi1yTJzVjih6LZQcZs99y50Z8XQ',
+}
+'''
