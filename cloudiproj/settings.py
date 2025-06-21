@@ -140,11 +140,3 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-'''
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dlclpcbki',
-    'API_KEY': '893577597641449',
-    'API_SECRET': 'xi1yTJzVjih6LZQcZs99y50Z8XQ',
-}
-'''

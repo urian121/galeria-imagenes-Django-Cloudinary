@@ -5,6 +5,7 @@ __pycache__/
 *.so
 .Python
 .env
+.env.local
 build/
 develop-eggs/
 dist/
